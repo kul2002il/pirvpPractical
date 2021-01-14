@@ -13,7 +13,31 @@
 			<h2>Задание 1</h2>
 			<p>
 				<?php
-					echo "create"
+				class Finder{
+					static function find(string $func)
+					{
+						try{
+							$filename = "https://www.php.net/manual/ru/function." . $func;
+							if (!file_exists($filename))
+							{
+								throw new Exception();
+							}
+							$page = file_get_contents($filename);
+							$info = '';
+							if (!preg_match('#\\<div class="methodsynopsis dc-description"\\>.*?\\</div\\>#s', $page, $info))
+							{
+								throw new Exception();
+							}
+							return $info[0];
+						}
+						catch (Exception $exc)
+						{
+							return "Функция " . $func . " не найдена.";
+						}
+					}
+				}
+
+				echo "Описание функции sqrt: " . Finder::find('sqrtd')
 				?>
 			</p>
 		</article>
