@@ -112,6 +112,16 @@ session_start();
 						unset($this->arr[$name]);
 					}
 
+					public function __sleep()
+					{
+						return array('arr');
+					}
+
+					public function __wakeup()
+					{
+						;
+					}
+
 				}
 
 				$acc = new Accessor();
@@ -120,6 +130,21 @@ session_start();
 				unset($acc->perem);
 				echo "<br/>";
 				print_r($acc);
+
+				?>
+			</p>
+		</article>
+
+		<article>
+			<h2>Задание 4</h2>
+			<p><!--Само задание решено в классе задания 3-->
+				<?php
+
+				$acc->perem = "value2";
+				$str = serialize($acc);
+				echo "<br/>" . $str . "\n<br/>";
+				$acc2 = unserialize($str);
+				print_r($acc2);
 
 				?>
 			</p>
