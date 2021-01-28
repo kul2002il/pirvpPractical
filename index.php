@@ -84,6 +84,46 @@ session_start();
 				Список ключей: <?php print_r($ses->listKeys()) ?>
 			</p>
 		</article>
+
+		<article>
+			<h2>Задание 3</h2>
+			<p>
+				<?php
+				class Accessor
+				{
+					private $arr = [];
+
+					public function __get($key)
+					{
+						if (array_key_exists($key, $this->arr)) {
+							return $this->arr[$key];
+						} else {
+							return null;
+						}
+					}
+
+					public function __set($key, $value)
+					{
+						$this->arr[$key] = $value;
+					}
+
+					public function __unset($name)
+					{
+						unset($this->arr[$name]);
+					}
+
+				}
+
+				$acc = new Accessor();
+				$acc->perem = "value";
+				print_r($acc);
+				unset($acc->perem);
+				echo "<br/>";
+				print_r($acc);
+
+				?>
+			</p>
+		</article>
 	</main>
 </body>
 </html>
