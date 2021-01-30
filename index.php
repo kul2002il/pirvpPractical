@@ -89,9 +89,17 @@ session_start();
 			<h2>Задание 3</h2>
 			<p>
 				<?php
-				class Accessor
+				class Accessor implements JsonSerializable
 				{
 					private $arr = [];
+
+					public function __construct($jsonString = null)
+					{
+						if ($jsonString)
+						{
+							$this->arr = json_decode($jsonString, true);
+						}
+					}
 
 					public function __get($key)
 					{
@@ -122,6 +130,11 @@ session_start();
 						;
 					}
 
+					public function jsonSerialize()
+					{
+						return $this->arr;
+						//return $this;
+					}
 				}
 
 				$acc = new Accessor();
@@ -141,12 +154,15 @@ session_start();
 				<?php
 
 				$acc->perem = "value2";
-				$str = serialize($acc);
-				echo "<br/>" . $str . "\n<br/>";
-				$acc2 = unserialize($str);
-				print_r($acc2);
+				$str = json_encode($acc);
+				$acc2 = new Accessor($str);
 
 				?>
+
+				Изначальный экземпляр:<?php print_r($acc); ?><br/>
+				Строка: <?= $str ?><br/>
+				Конечный экземпляр:<?php print_r($acc2); ?><br/>
+
 			</p>
 		</article>
 	</main>
