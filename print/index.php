@@ -1,5 +1,5 @@
 <?php
-$numberLR = 15;
+require_once "options.php";
 
 function getBranch($dir)
 {
@@ -74,11 +74,26 @@ $files = getBranch("..")
 
 		<div>
 			<h1>Результат работы программы</h1>
-			<div class="out_page">
-				<?php
-				include("../index.php")
+			<?php
+			foreach ($listResultsFiles as $val)
+			{
 				?>
-			</div>
+				<h2><?="/" . $val?></h2>
+				<div class="out_page">
+					<?php
+					include("../" . $val);
+					?>
+				</div>
+				<?php
+			}
+			?>
+		</div>
+
+		<div>
+			<h1>Вывод</h1>
+			<p>
+				Вывод: в ходе выполнения практической работы была выполнена практическая работа.
+			</p>
 		</div>
 	</main>
 </body>
