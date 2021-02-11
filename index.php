@@ -57,7 +57,9 @@ session_start()
 				}
 
 				$user = new User();
+				echo "Авторизация пользователя успешно :";
 				echo $user->auth("d", "1") . "<br/>";
+				echo "Пользователь зашёл :";
 				echo $user->is_auth() . "<br/>";
 				?>
 			</p>
