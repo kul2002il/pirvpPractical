@@ -1,3 +1,21 @@
+<?php
+$numberLR = 15;
+
+function getBranch($dir)
+{
+	$tree = scandir($dir);
+	unset($tree[0]);
+	unset($tree[1]);
+	$tree = array_filter($tree, function ($in)
+	{
+		return !($in == "print" || $in == ".git"|| $in == ".idea" || $in == ".gitignore" );
+	});
+	return $tree;
+}
+
+$files = getBranch("..")
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +37,7 @@
 			<p class="discipline">Специальность 090207 «Информационные системы и программирование»</p>
 
 			<p class="title_work">
-				Курсовой проект<br/>
-				КП.20.090207.472.01.ПЗ
+				Практическая работа №<?=$numberLR?>
 			</p>
 
 			<div class="signature">
@@ -43,9 +60,15 @@
 		<div>
 			<h1>Файлы</h1>
 			<?php
-			$code = file_get_contents("../index.php");
-			$code = htmlspecialchars($code);
-			echo "<pre>" . $code . "</pre>";
+			foreach ($files as $val)
+			{
+				$code = file_get_contents("../" . $val);
+				$code = htmlspecialchars($code);
+				?>
+				<h2><?=$val?></h2>
+				<pre><?=$code?></pre>
+				<?php
+			}
 			?>
 		</div>
 
