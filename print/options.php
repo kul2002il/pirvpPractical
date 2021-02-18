@@ -1,10 +1,17 @@
 <?php
 
-$numberLR = 15;
+$numberLR = 16;
 
-//Пути до исполняемых файлов скриптов.
+//Пути до файлов, не отображаемых в отчёте как исходный.
 //(Относителько корневой директории.)
-$listResultsFiles = array(
-"index.php",
+$listIgnoreFiles = array(
 );
 
+//Пути до исполняемых файлов скриптов.
+$listResultsFiles = array(
+    "index.php",
+);
+
+$task =
+"
+";
