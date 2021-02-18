@@ -57,11 +57,19 @@ $files = getBranch("..")
 
 			<p>Томск 2021</p><div></div>
 		</div>
+        <div>
+            <h1>Задание</h1>
+            <p><?=$task?></p>
+        </div>
 		<div>
 			<h1>Файлы</h1>
 			<?php
 			foreach ($files as $val)
 			{
+			    if (in_array($val, $listIgnoreFiles))
+			    {
+			        continue;
+                }
 				$code = file_get_contents("../" . $val);
 				$code = htmlspecialchars($code);
 				?>
@@ -79,11 +87,11 @@ $files = getBranch("..")
 			{
 				?>
 				<h2><?="/" . $val?></h2>
-				<div class="out_page">
+				<pre class="out_page">
 					<?php
 					include("../" . $val);
 					?>
-				</div>
+				</pre>
 				<?php
 			}
 			?>

@@ -9,12 +9,12 @@ try {
     );
     echo $user->password;
 } catch (Exception $exp) {
-    echo "Исключение {$exp->getCode()}: {$exp->getMessage()} <br>";
-    echo "в файле {$exp->getFile()} <br>";
-    echo "в строке {$exp->getLine()} <br>";
-    echo "<pre>";
-    echo $exp->getTraceAsString();
-    echo "</pre>";
+    $outStr = "Исключение {$exp->getCode()}: {$exp->getMessage()} \n"
+        . "в файле {$exp->getFile()} \n"
+        . "в строке {$exp->getLine()} \n"
+        . $exp->getTraceAsString()
+        ."\n\n";
+    file_put_contents("exceptions.log", $outStr, FILE_APPEND);
 }
 finally {
     echo 'Эта строка выводится всегда';
