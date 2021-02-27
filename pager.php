@@ -10,6 +10,10 @@ class Pager{
 	{
 		$this->page = $page;
 		$this->size = $size;
+	}
+
+	private final function update()
+	{
 		$this->data = $this->loadData();
 		$this->countPage = ceil(count($this->data) / $this->size);
 	}
@@ -20,6 +24,7 @@ class Pager{
 	}
 
 	public final function getPage(){
+		$this->update();
 		$links = $this->getLink();
 		$out = $links;
 		for ($i = $this->page * $this->size; $i < ($this->page + 1) * $this->size && $i < count($this->data); $i++)
@@ -64,7 +69,7 @@ class Pager{
 		return $out;
 	}
 
-	public function getArticle($number)
+	protected function getArticle($number)
 	{
 		$out = "<article>";
 		$out .= $this->getData($number);
@@ -77,7 +82,7 @@ class Pager{
 		return $this->data[$index];
 	}
 
-	public function loadData()
+	public function loadData($args = [])
 	{
 		return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	}

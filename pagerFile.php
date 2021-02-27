@@ -1,16 +1,29 @@
 <?php
 require_once "pager.php";
 
-class PagerFile extends Pager
+final class PagerFile extends Pager
 {
-	public function getArticle($number)
+	private $filename = "";
+
+	protected function getArticle($number)
 	{
 		return "<span>" . $this->getData($number) . "</span></br>";
 	}
 
-	public function loadData()
+	public function loadData($args = [])
 	{
-		return file("pager.php");
+		if(!file_exists($this->filename)) return [];
+
+		$file = file($this->filename);
+		if(!$file) return [];
+
+		return $file;
+	}
+
+	public function setFile(string $filename)
+	{
+		$this->filename = $filename;
+		$this->loadData();
 	}
 }
 
@@ -26,4 +39,5 @@ if(isset($_GET["size"]))
 }
 
 $pager = new PagerFile($page, $size);
+$pager->setFile("pager.php");
 $pager->show();
