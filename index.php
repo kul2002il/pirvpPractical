@@ -1,3 +1,5 @@
+<a href="/pagerFile.php">Файл</a>
+
 <?php
 
 require_once "pager.php";

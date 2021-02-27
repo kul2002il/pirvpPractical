@@ -6,7 +6,7 @@ class Pager{
 	private $countPage = 10; // Количество страниц.
 	private $data = []; // Массив данных на вывод.
 
-	public function __construct(int $page = 0, int $size = 3)
+	public final function __construct(int $page = 0, int $size = 3)
 	{
 		$this->page = $page;
 		$this->size = $size;
@@ -67,9 +67,14 @@ class Pager{
 	public function getArticle($number)
 	{
 		$out = "<article>";
-		$out .= $this->data[$number];
+		$out .= $this->getData($number);
 		$out .= "</article>";
 		return $out;
+	}
+
+	public final function getData($index)
+	{
+		return $this->data[$index];
 	}
 
 	public function loadData()
