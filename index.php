@@ -1,4 +1,6 @@
-<a href="/pagerFile.php">Файл</a>
+<a href="/pagerFile.php">Файл</a><br/>
+<a href="/pagerDB.php">База данных</a><br/>
+<a href="/pagerDir.php">Директория</a><br/>
 
 <?php
 
