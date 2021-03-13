@@ -9,7 +9,7 @@ $listIgnoreFiles = array(
 
 //Пути до исполняемых файлов скриптов.
 $listResultsFiles = array(
-    "index.php",
+	"index.php",
 );
 
 $task =
