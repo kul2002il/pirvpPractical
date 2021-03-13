@@ -37,7 +37,7 @@ $files = getBranch("..")
 			<p class="discipline">Специальность 090207 «Информационные системы и программирование»</p>
 
 			<p class="title_work">
-				Практическая работа №<?=$numberLR?>
+				Проверочная работа №<?=$numberLR?>
 			</p>
 
 			<div class="signature">
