@@ -15,3 +15,11 @@ body>table{
 .footer{
 	background-color: #ccc;
 }
+
+.hider{
+	display: none;
+}
+
+.hider:not(:checked)+*{
+	display: none;
+}
