@@ -1,0 +1,17 @@
+
+body>table{
+	width: 100%;
+}
+
+.header{
+	background-color: #99ffff;
+}
+
+.left, .right{
+	background-color: #eee;
+	width: 20%;
+}
+
+.footer{
+	background-color: #ccc;
+}
