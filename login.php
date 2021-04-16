@@ -1,6 +1,6 @@
 <?php
 
-require_once "..\\template\\Page.php";
+spl_autoload_register();
 
 class LoginPage extends template\Page{
 	public function __construct()
@@ -29,6 +29,8 @@ class LoginPage extends template\Page{
 		<?php
 	}
 }
+
+
 
 $page = new LoginPage();
 $page->show();

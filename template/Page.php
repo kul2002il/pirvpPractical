@@ -42,7 +42,8 @@ class Page{
 			<tr>
 				<td class="header" colspan="3">
 					<h1><?=$this->head?></h1>
-					<a href="login">Вход</a>
+					<a href="/">Главная</a>
+					<a href="/login.php">Вход</a>
 				</td>
 			</tr>
 		</thead>
