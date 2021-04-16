@@ -2,6 +2,8 @@
 
 namespace template;
 
+require "logic\Banner.php";
+
 class Page{
 
 	private $content = "Контент";
@@ -55,9 +57,15 @@ class Page{
 		</tr>
 		</tfoot>
 		<tr>
-			<td class="left">Лево</td>
-			<td class="center"><?php $this->showContent() ?></td>
-			<td class="right">Право</td>
+			<td class="left">
+				<?= (new \logic\Banner())->getRandBanner() ?>
+			</td>
+			<td class="center">
+				<?php $this->showContent() ?>
+			</td>
+			<td class="right">
+				Право
+			</td>
 		</tr>
 	</table>
 </body>
