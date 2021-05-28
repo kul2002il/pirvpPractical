@@ -10,9 +10,18 @@ class  Model_Banner extends Model
 		");
 	}
 
-	public function getRandBannerImg()
+	public function getRandBannerImg($position)
 	{
-		$res = $this->mysqli->query("SELECT id FROM Banners WHERE countShow < limitShow;");
+		if(!in_array($position, [
+			"left",
+			"right",
+			"down"
+		]))
+		{
+			return "Позиция не верна.";
+		}
+		$res = $this->mysqli->query("SELECT id FROM Banners
+			WHERE countShow < limitShow AND position = '$position';");
 		if ($res->num_rows === 0)
 		{
 			return "";

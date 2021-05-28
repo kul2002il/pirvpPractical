@@ -43,7 +43,7 @@
 	<tfoot>
 	<tr>
 		<td class="footer" colspan="3">
-			<?= $banner->getRandBannerImg() ?>
+			<?= $banner->getRandBannerImg("down") ?>
 			Сделано с безразличием. Дно
 		</td>
 	</tr>
@@ -65,13 +65,13 @@
 				echo "</ul>";
 			}
 			?>
-			<?= $banner->getRandBannerImg() ?>
+			<?= $banner->getRandBannerImg("left") ?>
 		</td>
 		<td class="center">
 			<?php include 'application/views/'.$content_view; ?>
 		</td>
 		<td class="right">
-			<?= $banner->getRandBannerImg() ?>
+			<?= $banner->getRandBannerImg("right") ?>
 		</td>
 	</tr>
 </table>
