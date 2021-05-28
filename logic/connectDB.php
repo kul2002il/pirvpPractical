@@ -5,7 +5,7 @@ $mysqli = new mysqli(
 	"root",
 	"",
 	"PR4_banners",
-	3306
+	3333
 );
 if ($mysqli->connect_errno) {
 	die("Не удалось подключиться к MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);

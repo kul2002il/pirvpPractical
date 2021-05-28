@@ -9,11 +9,11 @@ class Page{
 	private $content = "Контент";
 	private $head = "Главная";
 
-	protected function setHeader(string $head){
+	public function setHeader(string $head){
 		$this->head = $head;
 	}
 
-	protected function setContext(string $content){
+	public function setContext(string $content){
 		$this->content = $content;
 	}
 

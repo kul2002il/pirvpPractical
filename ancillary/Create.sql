@@ -10,10 +10,6 @@ CREATE TABLE Roles
 	role VARCHAR(50) NOT NULL UNIQUE
 );
 
-/*
-GO;
-*/
-
 INSERT INTO Roles (role) VALUES
 ('admin');
 
@@ -26,10 +22,6 @@ CREATE TABLE Users
 
 	FOREIGN KEY (role) REFERENCES Roles (id) ON DELETE CASCADE
 );
-
-/*
-GO;
-*/
 
 INSERT INTO Users (username, password, role) VALUES
 ('admin', 'admin', 1),
@@ -58,10 +50,6 @@ CREATE TABLE Banners
 
 	FOREIGN KEY (owner) REFERENCES Users (id) ON DELETE CASCADE
 );
-
-/*
-GO;
-*/
 
 INSERT INTO Pages (author, title, content) VALUES
 (1, 'Заголовок первой статьи', "Текст первой статьи"),
