@@ -80,7 +80,7 @@ class  Model_Banner extends Model
 			return "Отказано в доступе.";
 		}
 
-		$increment = int($increment);
+		$increment = (int)$increment;
 
 		$res = $this->mysqli->query(
 			"UPDATE banners SET
@@ -104,19 +104,23 @@ class  Model_Banner extends Model
 		{
 			return $valid;
 		}
+
+		$increment = 0;
 		extract($valid);
 
 		$index = (int)$index;
 
-		if(!$image)
+		$strChangeImade = "";
+		if($image)
 		{
-			return "Нет картинки";
+			$strChangeImade = ",image = '$image'";
 		}
 
 		$res = $this->mysqli->query(
 			"UPDATE banners SET
 				position = '$position',
-				image = '$image'
+				limitShow = limitShow + $increment
+				$strChangeImade
 			WHERE id = $index;
 		");
 
@@ -170,6 +174,7 @@ class  Model_Banner extends Model
 			"image" => $data["image"],
 			"owner" => $_SESSION["user"]["id"],
 			"position" => $data["position"],
+			"increment" => (int)$data["increment"],
 		];
 	}
 }

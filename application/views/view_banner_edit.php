@@ -1,28 +1,25 @@
-<h1><?=$data["title"]?></h1>
+<?php
+$flagAdmin = false;
+if(isset($_SESSION["user"]) && in_array($_SESSION["user"]["role"], [
+		"superuser",
+		"admin",
+])){
+	$flagAdmin = true;
+}
+?>
+<h1>Изменение баннера</h1>
 <form enctype="multipart/form-data" method="post">
 	<table>
 		<tr>
-			<td></td>
 			<td>
-				<input type="submit" name="deleteNews" value="Удалить">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="title">Заголовок</label>
+				<label for="position">Положение</label>
 			</td>
 			<td>
-				<input type="text" name="title" id="title" required
-				value="<?=$data["title"]?>">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="description">Описание</label>
-			</td>
-			<td>
-				<textarea name="description" id="description" required
-				rows="8" cols="80"><?=$data["description"]?></textarea>
+				<select name="position" id="position">
+					<option value='left'>Лево</option>
+					<option value='right'>Право</option>
+					<option value='down'>Дно</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -33,10 +30,20 @@
 				<input type="file" name="image" id="image" accept="image/*">
 			</td>
 		</tr>
+		<? if($flagAdmin) { ?>
+		<tr>
+			<td>
+				<label for="increment">Добавить просмотров</label>
+			</td>
+			<td>
+				<input type="number" name="increment" id="increment" value="0">
+			</td>
+		</tr>
+		<?php } ?>
 		<tr>
 			<td></td>
 			<td>
-				<input type="submit" name="editNews" value="Сохранить">
+				<input type="submit" name="editBanner" value="Отправить">
 			</td>
 		</tr>
 	</table>

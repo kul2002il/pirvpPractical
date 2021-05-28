@@ -3,6 +3,10 @@ body>table{
 	width: 100%;
 }
 
+td{
+	vertical-align: top;
+}
+
 .header{
 	background-color: #99ffff;
 }
@@ -26,4 +30,9 @@ body>table{
 
 .hider:not(:checked)+*{
 	display: none;
+}
+
+img{
+	max-width: 500px;
+	max-height: 500px;
 }

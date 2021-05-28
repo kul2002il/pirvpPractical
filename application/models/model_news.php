@@ -112,12 +112,14 @@ class  Model_News extends Model
 			return "Проект может добавлять только зарегистрированный пользователь.";
 		}
 
+		/*
 		if (!in_array($_SESSION["user"]["role"], [
 			"superuser",
 			"admin",
 		])){
 			return "Отказано в доступе.";
 		}
+		*/
 
 		if (!isset($data["title"]) ||
 			!isset($data["description"]) )

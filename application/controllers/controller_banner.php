@@ -1,5 +1,4 @@
 <?php
-require_once "application/models/model_comments.php";
 
 class Controller_Banner extends Controller
 {
@@ -9,7 +8,6 @@ class Controller_Banner extends Controller
 	{
 		parent::__construct();
 		$this->model = new Model_Banner();
-		$this->modelComments = new Model_Comments();
 	}
 
 	function action_index()
@@ -82,7 +80,7 @@ class Controller_Banner extends Controller
 			array_push($messages, $res);
 		}
 
-		$data = $this->model->getProjectData($index);
+		$data = $this->model->getDataOne($index);
 		if(is_string($data))
 		{
 			array_push($messages, $data);
