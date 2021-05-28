@@ -1,8 +1,4 @@
 <?php
-spl_autoload_register();
 
-$content = new logic\Content();
-
-$page = new template\Page();
-$page->setContext($content->getContent());
-$page->show();
+ini_set('display_errors', 1);
+require_once 'application/bootstrap.php';
