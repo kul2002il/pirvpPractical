@@ -8,7 +8,7 @@ class Model
 		global $mysqli;
 		if(!$mysqli)
 		{
-			$mysqli = new mysqli("localhost", "root", "", "up_pnss");
+			$mysqli = new mysqli("localhost", "root", "", "PR4_banners");
 			if ($mysqli->connect_errno) {
 				die("Не удалось подключиться к MySQL: " . $mysqli->connect_error);
 			}

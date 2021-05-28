@@ -1,0 +1,29 @@
+
+body>table{
+	width: 100%;
+}
+
+.header{
+	background-color: #99ffff;
+}
+
+.left, .right{
+	background-color: #eee;
+	width: 20%;
+}
+
+.left > *, .right > *{
+	width: 100%;
+}
+
+.footer{
+	background-color: #ccc;
+}
+
+.hider{
+	display: none;
+}
+
+.hider:not(:checked)+*{
+	display: none;
+}
