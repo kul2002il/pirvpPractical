@@ -126,23 +126,20 @@ INSERT INTO banners (image, owner, limitShow, position) VALUES
 	1,
 	10,
 	"right"
-),
-(
+),(
 	"/files/image/banners/a5c41a25a72049dfd738f1e9e0a280eb.jpg",
 	1,
 	10,
 	"right"
-),
-(
+),(
 	"/files/image/banners/dd40f2873f1a09ccb207d000f87243f5.jpg",
 	1,
 	10,
 	"left"
-),
-(
+),(
 	"/files/image/banners/dd54f6875f160681b157502058522485.jpg",
 	1,
 	10,
-	"left"
+	"down"
 );
 

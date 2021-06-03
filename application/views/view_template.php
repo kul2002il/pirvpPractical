@@ -13,7 +13,7 @@
 	<thead>
 	<tr>
 		<td class="header" colspan="3">
-			<h1><?=$this->head?></h1>
+			<h1>ВикиНовости</h1>
 			<?php
 			$pages = scandir("application/controllers");
 			unset($pages[0]);

@@ -20,8 +20,13 @@ class  Model_Banner extends Model
 		{
 			return "Позиция не верна.";
 		}
-		$res = $this->mysqli->query("SELECT id FROM Banners
+		$res = $this->mysqli->query("SELECT id FROM banners
 			WHERE countShow < limitShow AND position = '$position';");
+		if (!$res)
+		{
+			return "Ошибка БД " .
+				$this->mysqli->errno . ": " . $this->mysqli->error;
+		}
 		if ($res->num_rows === 0)
 		{
 			return "";
@@ -29,10 +34,10 @@ class  Model_Banner extends Model
 		$randBanner = rand(0, $res->num_rows-1);
 		$res->data_seek($randBanner);
 		$indexBanner = $res->fetch_assoc()['id'];
-		$this->mysqli->query("UPDATE Banners SET countShow = countShow + 1 WHERE id = $indexBanner;");
-		$res = $this->mysqli->query("SELECT image FROM Banners WHERE id = $indexBanner;");
+		$this->mysqli->query("UPDATE banners SET countShow = countShow + 1 WHERE id = $indexBanner;");
+		$res = $this->mysqli->query("SELECT image FROM banners WHERE id = $indexBanner;");
 		$image = $res->fetch_assoc()["image"];
-		return "<img src='$image' alt='Banner' class='banner'>";
+		return "<img src='$image' alt='banner' class='banner'>";
 	}
 
 	public function getDataOne($index)
